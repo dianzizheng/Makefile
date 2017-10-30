@@ -1,0 +1,17 @@
+#Makefile         //注释
+all:client server      //定义伪目标all
+
+.PHONY:all       //生成依赖
+
+client:client.o           //第一个目标文件
+	gcc -o client client.o
+client.o:client.c
+	gcc -c client.c -g
+
+server:server.o          //第二个目标文件
+	gcc -o server server.o
+server.o:server.c
+	gcc -c server.c -g
+
+clean:                 //清除所有的.o文件
+	$(RM) *.o all
